@@ -104,6 +104,7 @@ class Destination(models.Model):
     start_date = models.DateField(null=False, blank=False)
     end_date = models.DateField(null=False, blank=False)
     planner = models.ForeignKey(Users, related_name = 'trips', on_delete=models.CASCADE)
+    others = models.ManyToManyField(Users, related_name='joins')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UsersManager()

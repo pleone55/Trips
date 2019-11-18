@@ -11,6 +11,8 @@ urlpatterns = [
     url(r'^trips/edit/(?P<id>\d+)$', views.edit_info),
     url(r'^trips/(?P<id>\d+)$', views.trip_info),
     url(r'^delete/(?P<id>\d+)$', views.delete),
+    url(r'^cancel/(?P<id>\d+)$', views.cancel),
+    url(r'^join/(?P<id>\d+)$', views.join),
     url(r'^success$', views.success),
     url(r'^logout$', views.logout)
 ]

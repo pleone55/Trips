@@ -17,35 +17,67 @@
                 <a href="/logout" class="logout">Logout</a>
             </div>
         </div>
-        <h4 class="your_trips">Your Trips:</h4>
-        <table>
-            <thead>
-                <tr>
-                    <th scope="col">Destination</th>
-                    <th scope="col">Start Date</th>
-                    <th scope="col">End Date</th>
-                    <th scope="col">Plan</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>                   
-                        {% if user_trips %}
-                            {% for travel in user_trips %}
-                                <tr>
-                                    <td><a href="/trips/{{travel.id}}">{{travel.destination}}</a></td>
-                                    <td>{{travel.start_date}}</td>
-                                    <td>{{travel.end_date}}</td>
-                                    <td>{{travel.description}}</td>
-                                    <td><a href="/delete/{{travel.id}}">Delete</a>|<a href="/trips/edit/{{travel.id}}">Edit</a></td>
-                                </tr>
-                            {% endfor %}
-                        {% endif %}              
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="your-table">
+            <h4 class="your_trips">Your Trips:</h4>
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">End Date</th>
+                        <th scope="col">Plan</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>                   
+                            {% if user_trips %}
+                                {% for travel in user_trips %}
+                                    <tr>
+                                        <td><a href="/trips/{{travel.id}}">{{travel.destination}}</a></td>
+                                        <td>{{travel.start_date}}</td>
+                                        <td>{{travel.end_date}}</td>
+                                        <td>{{travel.description}}</td>
+                                        <td><a href="/delete/{{travel.id}}">Delete</a>|<a href="/trips/edit/{{travel.id}}">Edit</a></td>
+                                    </tr>
+                                {% endfor %}
+                            {% endif %}              
+                        </td>
+                    </tr>
+                    {% for trip in user_other_trips %}
+                    <tr>
+                        <td><a href="/trips/{{ trip.id }}">{{ trip.destination }}</a></td>
+                        <td>{{ trip.start_date }}</td>
+                        <td>{{ trip.end_date }}</td>
+                        <td>{{ trip.description }}</td>
+                        <td class="center"><a href="/cancel/{{ trip.id }}">Cancel</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="other-table">
+            <h4 class="your_trips">Other User's Travel Plans</h4>
+            <table class="others-table">
+                <thead>
+                    <th>Destination</th>
+                    <th>Travel Start Date</th>
+                    <th>Travel End Date</th>
+                    <th>Do You Want to Join?</th>
+                </thead>
+                <tbody>
+                {% for trip in other_trips %}
+                    <tr>
+                        <td><a href="/trips/{{ trip.id }}">{{ trip.destination }}</a></td>
+                        <td>{{ trip.start_date }}</td>
+                        <td>{{ trip.end_date }}</td>
+                        <td class="center"><a href="/join/{{ trip.id }}">Join</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>

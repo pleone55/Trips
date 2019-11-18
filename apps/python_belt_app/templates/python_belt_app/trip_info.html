@@ -11,7 +11,7 @@
 <body>
     <div class="wrapper">
         <div class="greeting_bar">
-            <h2 class="greetings">Hello {{trip.planner.first_name}}! Read About This Trip!</h2>
+            <h2 class="greetings">Hello! Read About This Trip!</h2>
             <div class="navigation">
                 <a href="/dashboard">Dashboard</a>
                 <a href="/logout">Logout</a>
@@ -24,6 +24,15 @@
                 <h3>Plan: {{ trip.description }}</h3><br>
                 <h3>Start Date: {{ trip.start_date }}</h3><br>
                 <h3>End Date: {{ trip.end_date }}</h3><br>
+            </div>
+        </div>
+        <div class="other">
+            <div class="other-content">
+                <h2 class="greetings">Other People Joining:</h2>
+                <br>
+                {% for user in others %}
+                    <h3 class="indent">{{ user.first_name }} {{ user.last_name }}</h3>
+                {% endfor %}
             </div>
         </div>
     </div>

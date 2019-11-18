@@ -52,6 +52,8 @@ def dashboard(request):
     context = {
         'user': user,
         'user_trips': Destination.objects.filter(planner=user),
+        'user_other_trips': Destination.objects.filter(others=user),
+        'other_trips': Destination.objects.exclude(planner=user).exclude(others=user),
     }
     return render(request, 'python_belt_app/dashboard.html', context)
 
@@ -83,7 +85,8 @@ def add_trip(request):
 
 def trip_info(request, id):
     context = {
-        'trip': Destination.objects.get(id=id)
+        'trip': Destination.objects.get(id=id),
+        'others': Users.objects.filter(joins=id)
     }
     return render(request, 'python_belt_app/trip_info.html', context)
 
@@ -117,6 +120,21 @@ def delete(request, id):
     trip = Destination.objects.get(id=id)
     if trip.planner == user:
         trip.delete()
+    return redirect('/dashboard')
+
+def cancel(request, id):
+    user = Users.objects.get(id=request.session['id'])
+    trip = Destination.objects.get(id=id)
+    trip.others.remove(user)
+    trip.save()
+    return redirect('/dashboard')
+
+
+def join(request, id):
+    user = Users.objects.get(id=request.session['id'])
+    trip = Destination.objects.get(id=id)
+    trip.others.add(user)
+    trip.save()
     return redirect('/dashboard')
 
 def logout(request):

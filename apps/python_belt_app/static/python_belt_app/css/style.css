@@ -16,6 +16,10 @@ ul {
 .messages {
     padding-left: 0px !important;
     list-style-type: none;
+    margin-left: 10px;
+    color: red;
+    font-weight: bolder;
+    margin-bottom: 15px;
 }
 
 .left, .right {
@@ -135,8 +139,19 @@ ul {
     margin-right: 20px;
 }
 
-table {
+.user-table {
     float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.other-table {
+    float: left;
+    position: absolute;
+    margin-top: 260px;
+}
+
+.others-table {
     margin-top: 10px;
     margin-left: 20px;
 }
@@ -156,4 +171,17 @@ td {
 
 .about-content {
     margin-bottom: 7px;
+}
+
+.indent {
+    margin-left: 20px;
+}
+
+.other {
+    margin-top: 10px;
+    width: 300px;
+    height: 0 auto;
+    margin-left: 20px;
+    border: solid black;
+    border-radius: 5px;
 }
