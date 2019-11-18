@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'python_belt_app/css/style.css' %}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="greeting_bar">
+            <h2 class="greetings">Hello {{user.first_name}}</h2>
+            <div class="navigation">
+                <a href="/add" class="create">Create a New Trip</a>
+                <a href="/logout" class="logout">Logout</a>
+            </div>
+        </div>
+        <h4 class="your_trips">Your Trips:</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Plan</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>                   
+                        {% if user_trips %}
+                            {% for travel in user_trips %}
+                                <tr>
+                                    <td><a href="/trips/{{travel.id}}">{{travel.destination}}</a></td>
+                                    <td>{{travel.start_date}}</td>
+                                    <td>{{travel.end_date}}</td>
+                                    <td>{{travel.description}}</td>
+                                    <td><a href="/delete/{{travel.id}}">Delete</a>|<a href="/trips/edit/{{travel.id}}">Edit</a></td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}              
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

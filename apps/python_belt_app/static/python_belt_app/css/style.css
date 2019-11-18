@@ -1,0 +1,159 @@
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 970px;
+    height: 0 auto;
+}
+
+ul {
+    margin-top: 30px !important;
+}
+
+.messages {
+    padding-left: 0px !important;
+    list-style-type: none;
+}
+
+.left, .right {
+    display: inline-block;
+}
+
+.right {
+    width: 200px;
+    height: 0 auto;
+    vertical-align: middle;
+    margin-top: 50px;
+    margin-left: 300px;
+    border: solid black;
+    border-radius: 5px;
+}
+
+.left {
+    width: 300px;
+    height: 0 auto;
+    vertical-align: middle;
+    margin-top: 50px;
+    margin-left: 20px;
+    border: solid black;
+    border-radius: 5px;
+}
+
+.left h2 {
+    background-image: linear-gradient(to bottom right, rgb(68, 68, 236), white);
+    padding: 10px;
+}
+
+.left-content {
+    margin-left: 20px;
+}
+
+.left-content h4 {
+    margin-bottom: 7px;
+    margin-top: 7px;
+}
+
+.right h2 {
+    background-image: linear-gradient(to bottom right, rgb(68, 68, 236), white);
+    padding: 10px;
+}
+
+.right-content {
+    margin-left: 20px;
+}
+
+.right-content h4 {
+    margin-bottom: 7px;
+    margin-top: 7px;
+}
+
+.button {
+    vertical-align: bottom;
+    text-align: center;
+    border: solid black;
+    background-color: white;
+    box-shadow: 3px 3px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.button_cancel {
+    text-align: center;
+    border: solid black;
+    background-color: white;
+    box-shadow: 3px 3px;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-left: 90px;
+    position: absolute;
+    bottom: 46px;
+}
+
+.button_cancel2 {
+    text-align: center;
+    border: solid black;
+    background-color: white;
+    box-shadow: 3px 3px;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-left: 90px;
+    position: absolute;
+    bottom: 46px;
+}
+
+.button, .button_cancel {
+    display: inline-block;
+}
+
+.text_box {
+    border: solid black;
+    border-radius: 3px;
+}
+
+.greeting_bar {
+    background-image: linear-gradient(to bottom right, rgb(68, 68, 236), white);
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.greetings, .navigation {
+    display: inline-block;
+}
+
+.greetings, .your_trips {
+    margin-left: 10px;
+}
+
+.navigation {
+    float: right;
+}
+
+.create {
+    margin-right: 20px;
+}
+
+table {
+    float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.your_trips {
+    margin-top: 20px;
+    text-decoration: underline;
+}
+
+thead {
+    background-color: grey;
+}
+
+td {
+    background-image: linear-gradient(to bottom, rgb(179, 175, 175), white);
+}
+
+.about-content {
+    margin-bottom: 7px;
+}

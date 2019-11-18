@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'python_belt_app/css/style.css' %}">
+    <title>Edit Trip</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="greeting_bar">
+            <h2 class="greetings">Hello {{user.first_name}}! Let's Edit Your Trip!</h2>
+            <div class="navigation">
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+
+        {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+        {% endif %}
+        </ul>
+
+        <div class="left">
+            <h2>Edit a Destination</h2>
+            <br>
+            <div class="left-content">
+                <form action="/trips/edit/{{trip.id}}" method="POST">
+                    {%csrf_token%}
+                    Destination: <input type="text" name="destination" class="text_box">
+                    <br><br>
+                    Start Date: <input type="date" name="start_date" class="text_box">
+                    <br><br>
+                    End Date: <input type="date" name="end_date" class="text_box">
+                    <br><br>
+                    Plan: <textarea name="description" class="text_box" cols="30" rows="10"></textarea>
+                    <br><br>
+                    <input type="submit" value="Submit" class="button" class="text_box">
+                </form>
+            </div>
+
+            <form action="/dashboard" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Cancel" class="button_cancel2">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

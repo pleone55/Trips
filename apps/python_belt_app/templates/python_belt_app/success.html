@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'python_belt_app/css/style.css' %}">
+    <title>Successful Login/Registration</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="greeting_bar">
+            <h1>Success! Welcome {{first_name}} !</h1>
+            <h4>Successfully registered (or logged in)!</h4>
+        </div>
+        <div class="navigation">
+            <a href="/logout">Log out</a>
+        </div>
+        <form action="/dashboard" method = "POST">
+            {%csrf_token%}
+            <input type="submit" value="Go to your trip dashboard" class="button">
+        </form>
+    </div>
+</body>
+</html>
