@@ -31,13 +31,13 @@
             <div class="left-content">
                 <form action="/trips/edit/{{trip.id}}" method="POST">
                     {%csrf_token%}
-                    Destination: <input type="text" name="destination" class="text_box">
+                    Destination: <input type="text" name="destination" class="text_box" value="{{trip.destination}}">
                     <br><br>
-                    Start Date: <input type="date" name="start_date" class="text_box">
+                    Start Date: <input type="date" name="start_date" class="text_box" value="{{trip.start_date}}">
                     <br><br>
-                    End Date: <input type="date" name="end_date" class="text_box">
+                    End Date: <input type="date" name="end_date" class="text_box" value="{{trip.end_date}}">
                     <br><br>
-                    Plan: <textarea name="description" class="text_box" cols="30" rows="10"></textarea>
+                    Plan: <textarea name="description" class="text_box" cols="30" rows="10">{{trips.description}}</textarea>
                     <br><br>
                     <input type="submit" value="Submit" class="button" class="text_box">
                 </form>
